@@ -13,6 +13,7 @@
         <form class="form" action="/confirm" method="post">
             @csrf
 
+            {{-- 名前入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">お名前</span>
@@ -36,6 +37,7 @@
                 </div>
             </div>
 
+            {{-- 性別入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">性別</span>
@@ -55,6 +57,7 @@
                 </div>
             </div>
 
+            {{-- メールアドレス入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">メールアドレス</span>
@@ -72,6 +75,7 @@
                 </div>
             </div>
 
+            {{-- 電話番号入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">電話番号</span>
@@ -85,6 +89,8 @@
                         <input type="tel" name="tel3" placeholder="5678" value="{{ old('tell') }}" />
                     </div>
                     <div class="form__error">
+                        {{-- if分で条件分岐させる？ --}}
+                        {{-- 条件：'tel'のどれか1つでも入力されていない場合はエラーメッセージを表示させる --}}
                         @error('tel1')
                             {{ $message }}
                         @enderror
@@ -104,6 +110,7 @@
                 </div>
             </div>
 
+            {{-- 住所入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">住所</span>
@@ -122,7 +129,7 @@
                 </div>
             </div>
 
-
+            {{-- 建物名入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">建物名</span>
@@ -131,10 +138,10 @@
                     <div class="form__input--text">
                         <input type="text" name="building" placeholder="例:千駄ヶ谷マンション101" value="{{ old('building') }}" />
                     </div>
-
                 </div>
             </div>
 
+            {{-- お問い合わせの種類選択欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">お問い合わせの種類</span>
@@ -157,6 +164,7 @@
                 </div>
             </div>
 
+            {{-- お問い合わせ内容入力欄 --}}
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">お問い合わせ内容</span>
@@ -174,6 +182,7 @@
                 </div>
             </div>
 
+            {{-- 確認画面ボタン --}}
             <div class="form__button">
                 <button class="form__button-submit" type="submit">確認画面</button>
             </div>

@@ -9,15 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function create()
+    {
+        return view('auth/register');
+    }
+
     public function store(Request $request)
     {
         $user = User::create([
             'name' => $request->name,
-            'email'=> $request->email,
-            'password'=> bcrypt($request->password),
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
         ]);
-        // return view('register');
-         Auth::login($user);
-        return redirect(RouteServiceProvider::HOME);
+        return view('register');
+        //  Auth::login($user);
+        // return redirect(RouteServiceProvider::HOME);
     }
 }
